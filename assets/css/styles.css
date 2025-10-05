@@ -644,26 +644,60 @@ skills{
 }
 */
 /*=============== BREAKPOINTS ===============*/
-@media screen and (max-width: 320px) {
+/* For very small screens (mobile < 576px) */
+@media screen and (max-width: 575px) {
+
+  /* general container spacing */
   .container {
     margin-inline: 1rem;
   }
 
+  /* ====== Skills single column ====== */
+  .skills__container {
+    display: grid;
+    grid-template-columns: 1fr; /* كله فوق بعض */
+    row-gap: 2rem;
+    justify-items: center;
+  }
+
   .skills__content {
-    grid-template-columns: max-content;
+    display: grid;
+    grid-template-columns: 1fr;
     row-gap: 1rem;
   }
-  
- .services__card {
-  padding-block: 1.5rem;
+
+  /* ====== Projects single column ====== */
+  .projects__container {
+    display: grid;
+    grid-template-columns: 1fr; /* مشروع واحد فوق التاني */
+    row-gap: 2rem;
+    justify-items: center;
+  }
+
+  /* زرار See Project */
+  .projects__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--small-font-size);
+    padding: 0.75rem 1rem;
+  }
+
+  /* Services single column */
+  .services__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+    justify-items: center;
+  }
+
+  .services__card {
+    padding-block: 1.5rem;
+  }
 }
 
-}
-
-
-
-/* For medium devices */
-@media screen and (min-width: 576px) {
+/* For medium devices (≥576px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
   .home__container,
   .about__container,
   .skills__container,
@@ -675,6 +709,7 @@ skills{
   }
 }
 
+/* For tablets and up (≥768px) */
 @media screen and (min-width: 768px) {
 
   .nav__menu {
@@ -693,7 +728,8 @@ skills{
   .home__data,
   .about__data,
   .skills__data,
-  :is(.about__data, .skills__data) :is(.section__subtitle, .section__title){
+  :is(.about__data, .skills__data)
+  :is(.section__subtitle, .section__title) {
     text-align: initial;
   }
 
@@ -704,10 +740,9 @@ skills{
   .home__blob,
   .about__blob {
     width: 400px;
-    justify-self: center; /* يخلي الصورة متوسّطة في العمود بتاعها */
+    justify-self: center; 
   }
 
-  /* يخلي نصوص about تيجي قبل الصورة */
   .about__data {
     order: 1;
   }
@@ -720,8 +755,6 @@ skills{
     column-gap: 2rem;
   }
 }
-
-
 
 /* For large devices */
 @media screen and (min-width: 1023px) {
@@ -756,6 +789,32 @@ skills{
 }
 }
 
+@media screen and (min-width: 1024px) {
+  .contact__container {
+    display: grid;
+    grid-template-columns: 680px; /* العرض المناسب */
+    justify-content: center; /* يخليها في النص */
+    margin-inline: auto; /* يثبت التوسيط */
+    padding-block: 2.5rem 2rem;
+  }
+
+  .contact__form {
+    display: grid;
+    row-gap: 1.5rem;
+    width: 100%;
+  }
+
+  .contact__group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  .contact__input,
+  .contact__form textarea {
+    width: 100%;
+  }
+}
 @media screen and (min-width: 1152px) {
   .container {
     margin-inline: auto;
